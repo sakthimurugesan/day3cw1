@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [showMessage, setShowMessage] = useState(false);
+
+  const toggleMessage = () => {
+    setShowMessage(!showMessage);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={toggleMessage}>
+        {showMessage ? 'Hide Message' : 'Show Message'}
+      </button>
+      {showMessage && <p>Hi! How are You!!!</p>}
     </div>
   );
-}
+};
 
 export default App;
